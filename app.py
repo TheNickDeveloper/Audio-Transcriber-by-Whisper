@@ -9,7 +9,7 @@ def main():
     st.sidebar.header("⚙️ Settings")
     model_choice = st.sidebar.selectbox(
         "Select Whisper model",
-        ["base", "small", "medium"],
+        ["tiny"],
         index=0
     )
 
@@ -48,3 +48,4 @@ def load_model(name):
 
 if __name__ == "__main__":
     main()
+
