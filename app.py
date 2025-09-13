@@ -9,7 +9,7 @@ def main():
     st.sidebar.header("⚙️ Settings")
     model_choice = st.sidebar.selectbox(
         "Select Whisper model",
-        ["tiny","base","small","medium"],
+        ["tiny","base","small"],
         index=0
     )
 
@@ -44,11 +44,11 @@ def main():
 
 @st.cache_resource
 def load_model(name):
-    # local_model_path = f"./models/{name}.pt"
     return whisper.load_model(name)
 
 if __name__ == "__main__":
     main()
+
 
 
 
