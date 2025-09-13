@@ -1,4 +1,5 @@
 import streamlit as st
+import torch
 import whisper
 import tempfile
 import os
@@ -12,6 +13,15 @@ def main():
         ["tiny"],
         index=0
     )
+
+    torch_load_old = torch.load
+    def torch_load_new(*args, **kwargs):
+        if "weights_only" not in kwargs:
+            kwargs["weights_only"] = False
+        return torch_load_old(*args, **kwargs)
+
+    torch.load = torch_load_new
+
 
     model = load_model(model_choice)
     st.title("🎙️ Audio Transcriber by Whisper")
@@ -41,7 +51,7 @@ def main():
                 mime="text/plain",
             )
             os.remove(temp_path)
-            
+
 @st.cache_resource
 def load_model(name):
     local_model_path = f"./models/{name}.pt"
@@ -49,5 +59,3 @@ def load_model(name):
 
 if __name__ == "__main__":
     main()
-
-
