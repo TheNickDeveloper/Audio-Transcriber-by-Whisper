@@ -1,6 +1,5 @@
 import streamlit as st
 import torch
-import whisper
 import tempfile
 import os
 
@@ -22,6 +21,11 @@ def main():
 
     torch.load = torch_load_new
 
+    import whisper
+    @st.cache_resource
+    def load_model(name):
+        local_model_path = f"./models/{name}.pt"
+        return whisper.load_model(local_model_path)
 
     model = load_model(model_choice)
     st.title("🎙️ Audio Transcriber by Whisper")
@@ -52,10 +56,7 @@ def main():
             )
             os.remove(temp_path)
 
-@st.cache_resource
-def load_model(name):
-    local_model_path = f"./models/{name}.pt"
-    return whisper.load_model(local_model_path)
+
 
 if __name__ == "__main__":
     main()
