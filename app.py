@@ -1,7 +1,7 @@
 import streamlit as st
-import torch
 import tempfile
 import os
+import whisper
 
 def main():
     st.set_page_config(page_title="Audio Transcriber", layout="centered")
@@ -12,20 +12,6 @@ def main():
         ["tiny"],
         index=0
     )
-
-    torch_load_old = torch.load
-    def torch_load_new(*args, **kwargs):
-        if "weights_only" not in kwargs:
-            kwargs["weights_only"] = False
-        return torch_load_old(*args, **kwargs)
-
-    torch.load = torch_load_new
-
-    import whisper
-    @st.cache_resource
-    def load_model(name):
-        local_model_path = f"./models/{name}.pt"
-        return whisper.load_model(local_model_path)
 
     model = load_model(model_choice)
     st.title("🎙️ Audio Transcriber by Whisper")
@@ -56,7 +42,10 @@ def main():
             )
             os.remove(temp_path)
 
-
+@st.cache_resource
+def load_model(name):
+    local_model_path = f"./models/{name}.pt"
+    return whisper.load_model(local_model_path)
 
 if __name__ == "__main__":
     main()
