@@ -44,8 +44,8 @@ def main():
 
 @st.cache_resource
 def load_model(name):
-    local_model_path = f"./models/{name}.pt"
-    return whisper.load_model(local_model_path)
+    # local_model_path = f"./models/{name}.pt"
+    return whisper.load_model(name)
 
 if __name__ == "__main__":
     main()
