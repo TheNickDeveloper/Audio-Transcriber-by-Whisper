@@ -49,6 +49,3 @@ def load_model(name):
 
 if __name__ == "__main__":
     main()
-
-
-
