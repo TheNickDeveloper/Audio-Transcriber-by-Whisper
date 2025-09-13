@@ -12,6 +12,7 @@ You can upload an audio file (`.mp3`, `.wav`, `.m4a`) and get instant transcript
 - Export the transcript as a `.txt` file
 - Select different Whisper models (currently supports `tiny`)
 
+![image](https://github.com/TheNickDeveloper/EmployeeInfoReviewer/blob/main/app_image.png)
 
 
 ---
