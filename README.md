@@ -4,6 +4,11 @@ A simple **web app** built with [Streamlit](https://streamlit.io/) and [OpenAI W
 You can upload an audio file (`.mp3`, `.wav`, `.m4a`) and get instant transcription, with the option to download the result as a `.txt` file.  
 
 ---
+## 🌐 Live Demo
+
+🔗 [Try it on Streamlit](https://audio-transcriber-by-whisper.streamlit.app/)
+
+---
 
 ## 🪴 Application UIUX
 
