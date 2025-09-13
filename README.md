@@ -5,15 +5,18 @@ You can upload an audio file (`.mp3`, `.wav`, `.m4a`) and get instant transcript
 
 ---
 
+## 🪴 Application UIUX
+
+![image](https://github.com/TheNickDeveloper/Audio-Transcriber-by-Whisper/blob/main/app_image.png)
+
+---
+
 ## 🚀 Features
 - Upload audio files (`mp3`, `wav`, `m4a`)
 - Transcribe speech to text using Whisper
 - View transcription directly in the browser
 - Export the transcript as a `.txt` file
 - Select different Whisper models (currently supports `tiny`)
-
-![image](https://github.com/TheNickDeveloper/EmployeeInfoReviewer/blob/main/app_image.png)
-
 
 ---
 
