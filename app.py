@@ -42,10 +42,10 @@ def main():
             )
             os.remove(temp_path)
 
-@st.cache_resource
 def load_model(name):
     local_model_path = f"./models/{name}.pt"
     return whisper.load_model(local_model_path)
 
 if __name__ == "__main__":
     main()
+
